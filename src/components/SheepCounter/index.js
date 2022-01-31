@@ -1,22 +1,16 @@
 import { useState } from "react";
-
+import useCounter from "../../hooks/useCounter.js";
 import sheep from "./sheep.svg";
 
 function SheepCounter() {
-  const [count, setCount] = useState(0);
-  function increment() {
-    setCount((count) => count + 1);
-  }
-  function decrement() {
-    setCount((count) => Math.max(0, count - 1));
-  }
+  const counter = useCounter();
   return (
     <div>
       <h4>Sheep Counter</h4>
-      <button onClick={decrement}>Less</button>
-      <button onClick={increment}>More</button>
+      <button onClick={counter.decrement}>Less</button>
+      <button onClick={counter.increment}>More</button>
       <div style={{ display: "flex", justifyContent: "center" }}>
-        {Array(count)
+        {Array(counter.count)
           .fill()
           .map((_, i) => {
             return (

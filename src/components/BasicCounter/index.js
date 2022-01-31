@@ -2,8 +2,8 @@ import { useState } from "react";
 import useDocumentTitle from "../../hooks/useDocumentTitle";
 
 function BasicCounter() {
-  const [count, setCount] = useState(0);
   useDocumentTitle(count);
+  const [count, setCount] = useState(0);
   function increment() {
     setCount((count) => count + 1);
   }
